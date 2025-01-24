@@ -47,6 +47,7 @@ const userSchema = new mongoose.Schema(
 );
 
 //INFO  //Arrow function is not used because arrow function does not have access to this
+//INFO pre is a middleware which is called just before 'save'
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
