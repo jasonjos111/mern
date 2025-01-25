@@ -14,11 +14,8 @@ export const asyncHandler = (func) => {
   return async (res, req, next) => {
     try {
       await func(req, res, next);
-    } catch (error) {
-      res.status(error.code || 500).json({
-        status: "failed",
-        message: error,
-      });
+    } catch (err) {
+      console.log(err);
     }
   };
 };
